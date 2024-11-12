@@ -1,0 +1,380 @@
+/* Global Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Roboto', sans-serif;
+}
+
+/* Hero Section */
+.Hero-section {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 100vh;
+    padding: 0 2rem;
+    position: relative;
+}
+
+.Hero-image {
+    flex: 1;
+    max-width: 50%;
+}
+
+.Hero-image img {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+    border-radius: 10px;
+}
+.Hero-text h1{
+  color: rgb(190, 190, 199);
+  text-align: left;
+  padding-left:18px;
+}
+.Hero-text {
+    flex: 1;
+    max-width: 50%;
+    color: rgb(231, 231, 231);
+    text-align: left;
+    padding-left: 2rem;
+}
+.Hero-text p{
+  color: rgb(231, 231, 231);
+}
+.Card-group h2{
+  color:rgb(231, 231, 231) ;
+}
+.Choose h2{
+  color:rgb(231, 231, 231) ;
+}
+
+.Choose h5{
+  color:rgb(231, 231, 231) ;
+}
+
+
+.Card-group h4{
+  font-size: 20px;
+  color:rgb(231, 231, 231) ;
+}
+
+.Hero-text h1 {
+    font-size: 3rem;
+    font-weight: 700;
+    margin-bottom: 1rem;
+    letter-spacing: 1px;
+}
+
+.Hero-text p {
+    font-size: 1.2rem;
+    margin-bottom: 2rem;
+    line-height: 1.6;
+}
+
+.Hero-text .btn {
+    border-radius: 50px;
+    padding: 12px 40px;
+    font-size: 1.1rem;
+    transition: background-color 0.3s ease;
+    text-decoration: none;
+}
+
+.Hero-text .btn:hover {
+    background-color: #003d6a;
+}
+
+/* Cards Section */
+.Card-group {
+    display: flex;
+    justify-content: space-between;
+    gap: 1.5rem;
+    margin: 3rem 2rem;
+}
+
+.Card {
+    background-color: #ffffff;
+    border-radius: 10px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.Card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.2);
+}
+
+.Card-img {
+    height: 200px;
+    object-fit: cover;
+    display: block;
+    margin: auto;
+}
+
+
+.Card-body {
+    padding: 2rem;
+ 
+ }
+
+.Card-title {
+
+    font-size: 1.6rem;
+    font-weight: 600;
+    margin-bottom: 1rem;
+}
+
+.Card-text {
+    font-size: 1rem;
+    line-height: 1.5;
+    
+}
+
+.Card-footer {
+    padding: 1rem 2rem;
+    
+    text-align: center;
+}
+
+.Card-footer a {
+    font-weight: bold;
+    color: #007bff;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.Card-footer a:hover {
+    color: #0056b3;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .Hero-section {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .Hero-image {
+        max-width: 100%;
+        margin-bottom: 2rem;
+    }
+
+    .Hero-text {
+        max-width: 100%;
+        padding-left: 0;
+    }
+
+    .Hero-text h1 {
+        font-size: 2.5rem;
+    }
+
+    .Hero-text p {
+        font-size: 1rem;
+        margin-bottom: 1.5rem;
+    }
+
+    .Card-group {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .Card {
+        width: 100%;
+        margin-bottom: 2rem;
+    }
+}
+.Service-section {
+    margin-left:250px;
+    margin-right:250px;
+}
+.Service-section h5{
+    color: black;
+}
+.Choose {
+    padding: 4rem 2rem;
+    text-align: center;
+     margin: 3rem 0;
+    border-radius: 10px;
+  }
+  
+  /* Heading Styles */
+  .Choose h1 {
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: rgb(29, 28, 28);
+    margin-bottom: 1rem;
+  }
+  
+  /* Subheading Styles */
+  .Choose h5 {
+    font-size: 1.2rem;
+    color: whitesmoke;
+    line-height: 1.6;
+    max-width: 900px;
+    margin: 0 auto;
+  }
+  
+  /* Add responsiveness */
+  @media (max-width: 768px) {
+    .Choose {
+      padding: 3rem 1rem;
+    }
+  
+    .Choose h1 {
+      font-size: 2rem;
+      text-align: center;
+    }
+  
+    .Choose h5 {
+      font-size: 1rem;
+    }
+  }
+
+  .Card-title-white {
+    color: rgb(15, 14, 14); /* This will make the title text white */
+  }
+ 
+  .testimony{
+    color: #1f1d1d;
+    margin-left: 520px;
+    margin-right: 320px;
+    font-size: 22px;
+    margin-top: 100px;
+    
+    
+  }
+  .testimony {
+   
+    padding: 20px;
+    border-radius: 8px;
+  }
+  
+  .Testimonies {
+    font-weight: bold;
+    font-size: 1.1em;
+    color: #333;
+    
+  
+  }
+  
+  .testimonial-text {
+    background-color: aliceblue;
+    font-style: italic;
+    font-size: 20px;
+    line-height: 1.2;
+    color: rgb(42, 40, 40);
+    padding: 15px;
+    border-left: 8px solid #007bff; /* Adds a left border for testimonial style */
+   
+    margin: 10px 0;
+    border-radius: 8px;
+    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
+  }
+  
+  
+  /* Footer Styles */
+.footer {
+    
+     color: rgb(14, 14, 14); /* White text */
+    text-align: center;
+    padding: 2rem 0;
+    margin-top: 3rem;
+  }
+  
+  .footer-content {
+    
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+  
+  .footer p {
+    
+    font-size: 1rem;
+    margin-bottom: 1rem;
+  }
+  
+  .social-icons {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+  }
+  
+  .social-icons a {
+    color: rgb(20, 20, 20);
+    text-decoration: none;
+    font-size: 1.2rem;
+    transition: color 0.3s ease;
+  }
+  
+  .social-icons a:hover {
+    color: #007bff; /* Hover effect */
+  }
+ .testimony h2{
+  color: azure;
+ }
+
+ /* Base styling */
+.testimony {
+  width: 90%;
+  margin: 0 auto;
+  padding: 20px;
+
+  color: white;
+  border-radius: 8px;
+  font-family: Arial, sans-serif;
+  text-align: center;
+}
+
+h2 {
+  font-size: 24px;
+  margin-bottom: 20px;
+}
+
+/* Testimonial text styling */
+.testimonial-text {
+  font-size: 18px;
+  line-height: 1.6;
+  margin-top: 20px;
+  padding: 15px;
+ 
+  border-radius: 5px;
+  background-color: #222;
+  color: #ddd;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .testimony {
+    width: 100%;
+    padding: 15px;
+  }
+
+  h2 {
+    font-size: 20px;
+  }
+
+  .testimonial-text {
+    font-size: 16px;
+    padding: 10px;
+  }
+}
+
+@media (max-width: 480px) {
+  h2 {
+    font-size: 18px;
+  }
+
+  .testimonial-text {
+    font-size: 14px;
+    padding: 8px;
+  }
+
+  .mb-4 .nav-link {
+    padding: 10px;
+    font-size: 14px;
+  }
+}
