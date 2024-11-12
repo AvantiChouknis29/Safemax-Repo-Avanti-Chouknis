@@ -23,7 +23,7 @@ const Appointment = mongoose.model('Appointment', appointmentSchema);
 
 // CORS middleware
 app.use(cors({
-  origin: 'http://localhost:3000',  // Your frontend URL
+  origin: ['http://localhost:3000', 'https://6732ef1af78634669af67bfb--frolicking-peony-ed1960.netlify.app'],  // Add your Netlify domain her
   methods: ['GET', 'POST'],
   credentials: true,
 }));
