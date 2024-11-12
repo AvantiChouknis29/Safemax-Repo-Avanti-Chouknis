@@ -9,7 +9,7 @@ const GetAppointments = () => {
   useEffect(() => {
     const fetchAppointments = async () => {
       try {
-        const response = await axios.get('http://localhost:8080/api/getallappointments');
+        const response = await axios.get('https://safemax-security-a5vl.onrender.com/api/getallappointments');
         console.log(response.data);
         // Add a "status" property to each appointment
         const appointmentsWithStatus = response.data.allappointments.map((appointment) => ({
