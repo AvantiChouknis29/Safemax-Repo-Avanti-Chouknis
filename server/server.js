@@ -22,15 +22,19 @@ const appointmentSchema = new mongoose.Schema(
 const Appointment = mongoose.model('Appointment', appointmentSchema);
 
 app.use(cors({
-  origin: ['http://localhost:3000', 'https://6732f3189e532870133f7779--dainty-narwhal-fdc260.netlify.app'],  // Add both localhost and Netlify URLs
-  methods: ['GET', 'POST', 'OPTIONS'],  // Allow OPTIONS method for preflight requests
+  origin: ['http://localhost:3000', 'https://6732f3189e532870133f7779--dainty-narwhal-fdc260.netlify.app'],  // Allowed origins
+  methods: ['GET', 'POST', 'OPTIONS'],  // Allow GET, POST, and OPTIONS methods
   allowedHeaders: ['Content-Type', 'Authorization'],  // Allow specific headers
-  credentials: true,
+  credentials: true,  // Allow credentials like cookies
 }));
 
 // Handle OPTIONS requests explicitly (preflight)
 app.options('*', (req, res) => {
-  res.status(200).end();
+  res.set('Access-Control-Allow-Origin', 'http://localhost:3000'); // Or the exact URL for Netlify
+  res.set('Access-Control-Allow-Methods', 'GET, POST, OPTIONS');
+  res.set('Access-Control-Allow-Headers', 'Content-Type, Authorization');
+  res.set('Access-Control-Allow-Credentials', 'true');  // Allow credentials
+  res.status(200).end();  // Respond with 200 OK
 });
 
 app.use(express.json());  // For parsing JSON data in requests
