@@ -1,8 +1,9 @@
-require('dotenv').config()
+require('dotenv').config();
 const express = require('express');
 const cors = require('cors');
 const mongoose = require('mongoose');
 const connectDb = require('./utils/db');  // Adjust path if needed
+
 const app = express();
 const PORT = process.env.PORT || 8080;
 
@@ -21,26 +22,30 @@ const appointmentSchema = new mongoose.Schema(
 // Create the Appointment Model
 const Appointment = mongoose.model('Appointment', appointmentSchema);
 
+// CORS Configuration
 app.use(cors({
-  origin: ['http://localhost:3000', 'https://6732f3189e532870133f7779--dainty-narwhal-fdc260.netlify.app'],  // Allowed origins
-  methods: ['GET', 'POST', 'OPTIONS'],  // Allow GET, POST, and OPTIONS methods
-  allowedHeaders: ['Content-Type', 'Authorization'],  // Allow specific headers
-  credentials: true,  // Allow credentials like cookies
+  origin: '*',  // Allow all origins for testing
+  methods: ['GET', 'POST', 'OPTIONS'],
+  allowedHeaders: ['Content-Type', 'Authorization'],
+  credentials: true,  // Allow credentials (cookies, etc.)
 }));
 
 // Handle OPTIONS requests explicitly (preflight)
 app.options('*', (req, res) => {
-  res.set('Access-Control-Allow-Origin', 'http://localhost:3000'); // Or the exact URL for Netlify
+  res.set('Access-Control-Allow-Origin', '*');  // Allow all origins for testing
   res.set('Access-Control-Allow-Methods', 'GET, POST, OPTIONS');
   res.set('Access-Control-Allow-Headers', 'Content-Type, Authorization');
   res.set('Access-Control-Allow-Credentials', 'true');  // Allow credentials
-  res.status(200).end();  // Respond with 200 OK
+  res.status(200).end();
 });
 
 app.use(express.json());  // For parsing JSON data in requests
 
 // POST route to handle new appointments
 app.post('/api/appointments', async (req, res) => {
+  res.setHeader('Access-Control-Allow-Origin', '*');  // Allow all origins for testing
+  res.setHeader('Access-Control-Allow-Credentials', 'true');  // Allow credentials
+
   const { name, email, appointmentDate, appointmentTime, comments } = req.body;
 
   try {
@@ -61,6 +66,9 @@ app.post('/api/appointments', async (req, res) => {
 
 // GET route to fetch all appointments
 app.get('/api/getallappointments', async (req, res) => {
+  res.setHeader('Access-Control-Allow-Origin', '*');  // Allow all origins for testing
+  res.setHeader('Access-Control-Allow-Credentials', 'true');  // Allow credentials
+
   try {
     const allappointments = await Appointment.find();  // Fetch all appointments from MongoDB
     if (allappointments.length === 0) {
