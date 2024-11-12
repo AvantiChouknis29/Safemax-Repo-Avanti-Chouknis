@@ -25,7 +25,7 @@ const Appointment = () => {
     e.preventDefault();
     try {
       // Send form data to the backend
-      await axios.post('http://localhost:8080/api/appointments', formData);
+      await axios.post('https://safemax-security-a5vl.onrender.com/api/appointments', formData);
       setSubmitted(true);
     } catch (error) {
       console.error('Error submitting form:', error);
