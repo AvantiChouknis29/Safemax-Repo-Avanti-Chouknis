@@ -1,0 +1,41 @@
+*{
+  background-color: rgb(0, 0, 0);
+}
+
+.my-navbar {
+      padding: 1rem; /* Padding around the navbar */
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
+  
+  .my-navbar ul {
+
+    list-style-type: none; /* Removes bullet points from list */
+    margin: 0;
+    padding: 0;
+    display: flex;
+    align-items: right;
+  }
+  
+  .my-navbar li {
+    display: flex;
+    align-items: center;
+  }
+  
+  .my-navbar img {
+    width: 50px; 
+    height: auto;
+    margin-right: 1rem; }
+  
+  .my-navbar a {
+    color: #e7e6e6; /* White text color for links */
+    text-decoration: none; /* Removes underline from links */
+    padding: 0.9rem 1rem; /* Padding around each link */
+    font-size: 1.2rem; /* Adjust font size */
+  }
+  
+  .my-navbar a:hover {
+     border-radius: 4px; /* Rounded corners on hover */
+  }
+  
