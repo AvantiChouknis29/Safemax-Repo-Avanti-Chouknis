@@ -1,9 +1,8 @@
-require('dotenv').config();
+require('dotenv').config()
 const express = require('express');
 const cors = require('cors');
 const mongoose = require('mongoose');
 const connectDb = require('./utils/db');  // Adjust path if needed
-
 const app = express();
 const PORT = process.env.PORT || 8080;
 
@@ -22,30 +21,16 @@ const appointmentSchema = new mongoose.Schema(
 // Create the Appointment Model
 const Appointment = mongoose.model('Appointment', appointmentSchema);
 
-// CORS Configuration
+// CORS middleware
 app.use(cors({
-  origin: '*',  // Allow all origins for testing
-  methods: ['GET', 'POST', 'OPTIONS'],
-  allowedHeaders: ['Content-Type', 'Authorization'],
-  credentials: true,  // Allow credentials (cookies, etc.)
+  origin: ['http://localhost:3000', 'https://safemax-security-a5vl.onrender.com'], // Your frontend URL
+  methods: ['GET', 'POST'],
+  credentials: true,
 }));
-
-// Handle OPTIONS requests explicitly (preflight)
-app.options('*', (req, res) => {
-  res.set('Access-Control-Allow-Origin', '*');  // Allow all origins for testing
-  res.set('Access-Control-Allow-Methods', 'GET, POST, OPTIONS');
-  res.set('Access-Control-Allow-Headers', 'Content-Type, Authorization');
-  res.set('Access-Control-Allow-Credentials', 'true');  // Allow credentials
-  res.status(200).end();
-});
-
 app.use(express.json());  // For parsing JSON data in requests
 
 // POST route to handle new appointments
 app.post('/api/appointments', async (req, res) => {
-  res.setHeader('Access-Control-Allow-Origin', '*');  // Allow all origins for testing
-  res.setHeader('Access-Control-Allow-Credentials', 'true');  // Allow credentials
-
   const { name, email, appointmentDate, appointmentTime, comments } = req.body;
 
   try {
@@ -66,9 +51,6 @@ app.post('/api/appointments', async (req, res) => {
 
 // GET route to fetch all appointments
 app.get('/api/getallappointments', async (req, res) => {
-  res.setHeader('Access-Control-Allow-Origin', '*');  // Allow all origins for testing
-  res.setHeader('Access-Control-Allow-Credentials', 'true');  // Allow credentials
-
   try {
     const allappointments = await Appointment.find();  // Fetch all appointments from MongoDB
     if (allappointments.length === 0) {
