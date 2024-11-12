@@ -21,12 +21,17 @@ const appointmentSchema = new mongoose.Schema(
 // Create the Appointment Model
 const Appointment = mongoose.model('Appointment', appointmentSchema);
 
-// CORS middleware
 app.use(cors({
-  origin: ['http://localhost:3000', 'https://6732ef1af78634669af67bfb--frolicking-peony-ed1960.netlify.app'],  // Add your Netlify domain her
-  methods: ['GET', 'POST'],
+  origin: ['http://localhost:3000', 'https://6732f3189e532870133f7779--dainty-narwhal-fdc260.netlify.app'],  // Add both localhost and Netlify URLs
+  methods: ['GET', 'POST', 'OPTIONS'],  // Allow OPTIONS method for preflight requests
+  allowedHeaders: ['Content-Type', 'Authorization'],  // Allow specific headers
   credentials: true,
 }));
+
+// Handle OPTIONS requests explicitly (preflight)
+app.options('*', (req, res) => {
+  res.status(200).end();
+});
 
 app.use(express.json());  // For parsing JSON data in requests
 
